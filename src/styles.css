@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Heebo", Sans-serif, serif !important;
+}
+
+:root {
+  --primary-color: #fdc501;
+  --secondary-color: #3e4958;
+}
+
+.primary-color {
+  color: var(--primary-color) !important;
+}
+
+.background-primary {
+  background: var(--primary-color) !important;
+}
+
+.mt-80 {
+  margin-top: 80px;
+}
+
+.list-none {
+  list-style: none;
+}
+
+
+.fs-30 {
+  font-size: 30px !important;
+}
