@@ -186,6 +186,36 @@ select {
   padding: 8px 30px;
 }
 
+.class-rent-section {
+
+}
+
+.quote-section {
+  background-image: url(https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Group.png);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.quote {
+  text-align: center;
+  color: #767e88;
+  font-size: 30px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  flex-basis: 1050px;
+  margin-bottom: 10px;
+}
+
+.quote-author-name {
+  text-align: center;
+  color: #767e88;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5em;
+}
 
 /*@media only screen and (max-width: 950px) {*/
 /*  .dashboard-container {*/
