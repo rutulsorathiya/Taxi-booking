@@ -13,6 +13,10 @@ body {
   color: var(--primary-color) !important;
 }
 
+.secondary-color {
+  color: var(--secondary-color) !important;
+}
+
 .background-primary {
   background: var(--primary-color) !important;
 }
@@ -36,4 +40,40 @@ body {
 
 .fs-40 {
   font-size: 40px !important;
+}
+
+.fs-xs {
+  font-size: xx-small !important;
+}
+
+.breadcrumb-text {
+  text-decoration: none !important;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6em;
+  color: #3E4958 !important;
+}
+
+
+.breadcrumb-text:hover {
+  color: var(--primary-color) !important;
+}
+
+.form-button {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  text-transform: none;
+  font-style: normal !important;
+  background-color: var(--primary-color) !important;
+  color: #ffffff !important;
+  padding: 0 70px 0 70px !important;
+  border-radius: 5px !important;
+  box-shadow: 0 8px 20px 0 rgba(27, 27, 27, 0.08) !important;
+  line-height: 60px !important;
+}
+
+.form-button:hover {
+  background-color: var(--secondary-color) !important;
+  color: #ffffff !important;
 }

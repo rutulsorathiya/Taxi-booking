@@ -79,35 +79,9 @@ input:focus {
     color: #f9d700;
 }
 
-.button {
-    background-color: white;
-    color: #94a3b8;
-    width: 12.5em;
-    height: 2.9em;
-    border: #f9d700 0.2em solid;
-    border-radius: 11px;
-    text-align: right;
-    transition: all 0.6s ease;
-}
-
-.button:hover {
-    background-color: #f9d700;
-    cursor: pointer;
-    color: white;
-}
-
-.button .icn {
-    width: 1.6em;
-    margin: -0.2em 0.8em 1em;
-    position: absolute;
-    display: flex;
-    transition: all 0.6s ease;
-
-}
-
-.button:hover .icn {
-    transform: translateX(5px);
-    color: white;
+button {
+  padding: 0 50px 0 50px !important;
+  line-height: 50px !important;
 }
 
 .text {

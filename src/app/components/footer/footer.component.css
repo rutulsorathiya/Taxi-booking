@@ -168,7 +168,7 @@ ul {
 }
 
 .background-container {
-  height: 450px;
+  padding: 100px 50px;
   background-image: url('/assets/background-images/footer.webp');
   background-size: cover;
   background-position: 0 0;
@@ -182,4 +182,60 @@ ul {
 
 .f-weight-700 {
   font-weight: 700;
+}
+
+
+.footer-header {
+  color: #3E4958;
+
+  h2 {
+    font-size: 48px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1.2em;
+  }
+
+  span {
+    font-weight: 600;
+    margin-left: 20px;
+    font-size: 60px;
+  }
+}
+
+@media screen  and (max-width: 1023px) {
+  .footer-header {
+    color: #3E4958;
+
+    h2 {
+      font-size: 38px;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1.2em;
+    }
+
+    span {
+      font-weight: 600;
+      margin-left: 20px;
+      font-size: 50px;
+    }
+  }
+}
+
+@media screen  and (max-width: 576px) {
+  .footer-header {
+    color: #3E4958;
+
+    h2 {
+      font-size: 28px;
+      font-weight: normal;
+      font-style: normal;
+      line-height: 1.2em;
+    }
+
+    span {
+      font-weight: 600;
+      margin-left: 20px;
+      font-size: 30px;
+    }
+  }
 }
