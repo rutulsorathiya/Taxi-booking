@@ -362,7 +362,7 @@ select {
   }
 
   .dashboard-container {
-    height: 850px;
+    height: 900px;
   }
 
   .header {
@@ -389,6 +389,10 @@ select {
     width: 95%;
     margin-top: 20px;
     padding: 20px 0;
+  }
+
+  .m-none {
+    margin:0;
   }
 }
 
