@@ -381,6 +381,10 @@ select {
     }
   }
 
+  .service-container {
+    padding: 80px 30px 50px 30px;
+  }
+
   .form-container {
     width: 95%;
     margin-top: 20px;
