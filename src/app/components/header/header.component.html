@@ -1,14 +1,14 @@
 <header class="header">
   <nav>
     <div class="logo">
-      <img src="assets/images/logo.svg">
+      <img src="assets/images/logo.svg" alt="Logo">
     </div>
     <input id="menu-toggle" type="checkbox">
     <label class="menu-icon" for="menu-toggle">&#9776;</label>
-    <ul class="menu">
-      <li><a href="#">Home</a></li>
-      <li><a  [routerLink]="['/about-us']">About us</a></li>
-      <li><a  [routerLink]="['/contact-us']">Contact us</a></li>
+    <ul class="menu" id="menu">
+      <li><a href="#" onclick="document.getElementById('menu-toggle').checked = false;">Home</a></li>
+      <li><a [routerLink]="['/about-us']" onclick="document.getElementById('menu-toggle').checked = false;">About us</a></li>
+      <li><a [routerLink]="['/contact-us']" onclick="document.getElementById('menu-toggle').checked = false;">Contact us</a></li>
     </ul>
   </nav>
 </header>
