@@ -92,6 +92,10 @@ select {
   appearance: none;
 }
 
+ul {
+  padding-left: 0 !important;
+}
+
 .service-container {
   background: url("https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Group-169.png") no-repeat center center;
   background-size: cover;
@@ -381,8 +385,12 @@ select {
     }
   }
 
+  .section-header {
+    font-size: 30px;
+  }
+
   .service-container {
-    padding: 80px 30px 50px 30px;
+    padding: 50px 30px 50px 30px;
   }
 
   .form-container {
@@ -393,6 +401,18 @@ select {
 
   .m-none {
     margin:0;
+  }
+
+  .app-download-header {
+    font-size: 35px;
+  }
+
+  .quote {
+    font-size: 20px;
+  }
+
+  .quote-author-name {
+    font-size: 14px;
   }
 }
 
