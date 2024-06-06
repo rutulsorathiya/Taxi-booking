@@ -1,19 +1,22 @@
 import { Component } from '@angular/core';
 import { CalendarModule } from 'primeng/calendar';
 import {FormsModule} from "@angular/forms";
-import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {BrowserModule} from "@angular/platform-browser";
-import {CommonModule, NgFor, NgIf} from "@angular/common";
+import {InputTextModule} from "primeng/inputtext";
+import {DropdownModule} from "primeng/dropdown";
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
   imports: [
     FormsModule,
-    CalendarModule
+    CalendarModule,
+    InputTextModule,
+    DropdownModule
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent {
   date!:string;
+  timeslot:string[] = ['4:00','5:00']
 }
