@@ -9,6 +9,11 @@ body {
   --secondary-color: #3e4958;
 }
 
+::selection {
+  background: var(--primary-color);
+  color: var(--secondary-color);
+}
+
 .primary-color {
   color: var(--primary-color) !important;
 }
