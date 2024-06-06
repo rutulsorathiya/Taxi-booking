@@ -10,37 +10,36 @@
       <h3>Enjoy comfortable trip, order taxi online</h3>
     </div>
     <div class="form-container row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input class="form-input" placeholder="From:" type="text">
+          <input pInputText placeholder="From:" class="w-100" styleClass="w-100" type="text">
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input class="form-input" placeholder="To:" type="text">
+          <input pInputText placeholder="To:" class="w-100" styleClass="w-100" type="text">
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <p-calendar
-            class="w-100 h-100"
-            styleClass="w-100 h-100"
+            class="w-100"
+            styleClass="w-100"
             [(ngModel)]="date"
             [iconDisplay]="'input'"
-            [showIcon]="true"
-            inputId="icondisplay" />
+            [showIcon]="true" />
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-        <div class="input-group input-group-lg dropdown-icon">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
+        <div class="input-group input-group-lg">
           <i class="fa fa-clock-o form-input-icon"></i>
-          <select class="form-input">
-            <option disabled selected>Time</option>
-            <option>4:00</option>
-            <option>5:00</option>
-          </select>
+          <p-dropdown
+            class="w-100"
+            styleClass="w-100"
+            [options]="timeslot"
+            placeholder="Select a City" />
         </div>
       </div>
       <div class="col-12 text-center">
@@ -210,75 +209,7 @@
     </div>
   </section>
 </section>
-<!--<section>-->
-<!--  <div class="row m-0">-->
-<!--    <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">-->
-<!--      <img alt="iPhone" class="img-fluid" decoding="async" fetchpriority="high" height="1020"-->
-<!--           src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/iPhone-XS-White.svg"-->
-<!--           width="630">-->
-<!--    </div>-->
-<!--    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">-->
-<!--      <div class="mt-80 m-none">-->
-<!--        <h2 class="app-download-header">Get more benefits, download the App</h2>-->
-<!--        <div class="app-download-text">-->
-<!--          Order through the application-->
-<!--          and get a <strong style="color: #3e4958;">15% discount</strong></div>-->
-<!--        <div>-->
-<!--          <ul class="list-none">-->
-<!--            <li class="mt-3 d-flex gap-2">-->
-<!--              <div class="mt-2">-->
-<!--                <i class="fa fa-check primary-color"></i>-->
-<!--              </div>-->
-<!--              <div class="app-download-points">-->
-<!--                <strong style="color: #3e4958;">Fast booking</strong>-->
-<!--                driver will be awaiting your arrival and will transport you directly to your accommodation-->
-<!--              </div>-->
-<!--            </li>-->
-<!--            <li class="mt-3 d-flex gap-2">-->
-<!--              <div class="mt-2">-->
-<!--                <i class="fa fa-check primary-color"></i>-->
-<!--              </div>-->
-<!--              <div class="app-download-points">-->
-<!--                <strong style="color: #3e4958;">Easy to use</strong> you just have to lean back and enjoy the ride-->
-<!--              </div>-->
-<!--            </li>-->
-<!--            <li class="mt-3 d-flex gap-2">-->
-<!--              <div class="mt-2">-->
-<!--                <i class="fa fa-check primary-color"></i>-->
-<!--              </div>-->
-<!--              <div class="app-download-points">-->
-<!--                <strong style="color: #3e4958;">Bonuses for ride</strong> discounted rates, so you can be sure that you-->
-<!--                will be getting the best value transfers-->
-<!--              </div>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--        <div class="text-center d-flex  flex-wrap gap-2 mt-5">-->
-<!--          <button class="btn btn-secondary app-download-button d-flex align-items-center" type="button">-->
-<!--            <div>-->
-<!--              <i class="fa fa-apple m-2 fs-30"></i>-->
-<!--            </div>-->
-<!--            <div class="d-flex justify-content-start flex-column">-->
-<!--              <span class="small">Available on</span>-->
-<!--              <span>APP STORE</span>-->
-<!--            </div>-->
-<!--          </button>-->
-<!--          <button-->
-<!--            class="btn btn-secondary background-primary border-0 app-download-button d-flex justify-content-center align-items-center"-->
-<!--            type="button">-->
-<!--            <div>-->
-<!--              <i class="fa fa-android m-2 fs-30"></i>-->
-<!--            </div>-->
-<!--            <div class="d-flex flex-column">-->
-<!--              <span class="small">Available on</span>-->
-<!--              <span>GOOGLE PLAY</span>-->
-<!--            </div>-->
-<!--          </button>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+
 <section class="quote-section row m-0 d-flex justify-content-center align-items-center">
   <div class="col-12 text-center mt-3">
     <h2 class="section-header text-center">Car classes and rates</h2>
@@ -537,3 +468,74 @@
     </div>
   </div>
 </div>
+
+
+<!--<section>-->
+<!--  <div class="row m-0">-->
+<!--    <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">-->
+<!--      <img alt="iPhone" class="img-fluid" decoding="async" fetchpriority="high" height="1020"-->
+<!--           src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/iPhone-XS-White.svg"-->
+<!--           width="630">-->
+<!--    </div>-->
+<!--    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">-->
+<!--      <div class="mt-80 m-none">-->
+<!--        <h2 class="app-download-header">Get more benefits, download the App</h2>-->
+<!--        <div class="app-download-text">-->
+<!--          Order through the application-->
+<!--          and get a <strong style="color: #3e4958;">15% discount</strong></div>-->
+<!--        <div>-->
+<!--          <ul class="list-none">-->
+<!--            <li class="mt-3 d-flex gap-2">-->
+<!--              <div class="mt-2">-->
+<!--                <i class="fa fa-check primary-color"></i>-->
+<!--              </div>-->
+<!--              <div class="app-download-points">-->
+<!--                <strong style="color: #3e4958;">Fast booking</strong>-->
+<!--                driver will be awaiting your arrival and will transport you directly to your accommodation-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="mt-3 d-flex gap-2">-->
+<!--              <div class="mt-2">-->
+<!--                <i class="fa fa-check primary-color"></i>-->
+<!--              </div>-->
+<!--              <div class="app-download-points">-->
+<!--                <strong style="color: #3e4958;">Easy to use</strong> you just have to lean back and enjoy the ride-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="mt-3 d-flex gap-2">-->
+<!--              <div class="mt-2">-->
+<!--                <i class="fa fa-check primary-color"></i>-->
+<!--              </div>-->
+<!--              <div class="app-download-points">-->
+<!--                <strong style="color: #3e4958;">Bonuses for ride</strong> discounted rates, so you can be sure that you-->
+<!--                will be getting the best value transfers-->
+<!--              </div>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--        <div class="text-center d-flex  flex-wrap gap-2 mt-5">-->
+<!--          <button class="btn btn-secondary app-download-button d-flex align-items-center" type="button">-->
+<!--            <div>-->
+<!--              <i class="fa fa-apple m-2 fs-30"></i>-->
+<!--            </div>-->
+<!--            <div class="d-flex justify-content-start flex-column">-->
+<!--              <span class="small">Available on</span>-->
+<!--              <span>APP STORE</span>-->
+<!--            </div>-->
+<!--          </button>-->
+<!--          <button-->
+<!--            class="btn btn-secondary background-primary border-0 app-download-button d-flex justify-content-center align-items-center"-->
+<!--            type="button">-->
+<!--            <div>-->
+<!--              <i class="fa fa-android m-2 fs-30"></i>-->
+<!--            </div>-->
+<!--            <div class="d-flex flex-column">-->
+<!--              <span class="small">Available on</span>-->
+<!--              <span>GOOGLE PLAY</span>-->
+<!--            </div>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
