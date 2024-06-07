@@ -5,6 +5,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { DropdownModule } from "primeng/dropdown";
 import { CarouselModule } from 'primeng/carousel';
 import { CarouselComponent } from '../carousel/carousel.component';
+import { CommonService } from '../../service/common.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,5 +23,5 @@ import { CarouselComponent } from '../carousel/carousel.component';
 })
 export class DashboardComponent {
   date!: string;
-  timeslot: string[] = ['4:00', '5:00']
+  timeslot: string[] = ['4:00', '5:00'];
 }

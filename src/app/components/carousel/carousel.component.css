@@ -40,3 +40,7 @@
 .card-shadow {
     box-shadow: 0 4px 40px 0 rgba(62, 73, 88, 0.08);
 }
+
+.card-shadow:hover {
+    transform: scale(1.1);
+}

@@ -1,0 +1,26 @@
+<div class="d-flex justify-content-center">
+    <form [formGroup]="vehicleInformation" (ngSubmit)="onSubmit()" class="vehicle-form">
+        <div class="mb-2">
+            <div (click)="fileUpload.click()" style="height: 50px;width: 100%;background-color:white;border-radius: 3px;padding:10px;display:flex;align-items: center;justify-content: center;border:1px dotted black">
+                <i class="fa fa-upload"></i>
+                <div> Upload image here</div>
+            </div>
+            <input #fileUpload type="file" accept="image/*" class="hidden" formControlName="image" (change)="handleFileInput($event)"/>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            <span class="required">title</span>
+            <input type="text" pInputText formControlName="title" />
+        </div>
+        <div class="d-flex flex-column mb-2">
+            <span class="required">description</span>
+            <input type="text" pInputText formControlName="description"/>
+        </div>
+        <div class="d-flex flex-column mb-2">
+            <span class="required">rate</span>
+            <input type="number" pInputText formControlName="rate" />
+        </div>
+        <div class="mt-2">
+            <button pButton class="w-100" pStyleClass="w-100" [disabled]="vehicleInformation.invalid" type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
