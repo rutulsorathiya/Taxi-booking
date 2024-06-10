@@ -4,13 +4,13 @@
             <div class="border-1 surface-border border-round m-2 p-3 card-shadow">
                 <div class="mb-3">
                     <div class="image-wrapper d-flex justify-content-center align-items-center">
-                        <img alt="Van" decoding="async" loading="lazy" src="{{ product.image }}" />
+                        <img alt="Van" decoding="async" loading="lazy" src="{{ product.ImageUrl }}" />
                     </div>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ product.title }}</h5>
-                    <div class="card-text">{{ product.description}}</div>
-                    <div class="taxi-price"><span>{{ '$' + product.rate }}<span
+                    <h5 class="card-title">{{ product.VehicleName }}</h5>
+                    <div class="card-text">{{ product.Desc}}</div>
+                    <div class="taxi-price"><span>{{ '$' + product.Price }}<span
                                 style="font-size: .5em;">/km</span></span></div>
                 </div>
             </div>

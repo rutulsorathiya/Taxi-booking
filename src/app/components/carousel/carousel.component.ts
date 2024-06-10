@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
-import { CommonService, ICarClassFare } from '../../service/common.service'
+import { CommonService } from '../../service/common.service'
 import { TagModule } from 'primeng/tag';
+import { Vehicles } from '../../vehicle.interface';
+import { VehicleService } from '../../service/vehicle.service';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { TagModule } from 'primeng/tag';
   styleUrl: './carousel.component.css'
 })
 export class CarouselComponent implements OnInit {
-  products: ICarClassFare[] = []
+  products: Vehicles[] = []
   responsiveOptions: any[] | undefined = [
     {
       breakpoint: '1600px',
@@ -36,9 +38,14 @@ export class CarouselComponent implements OnInit {
     }
   ];
 
+  vehicleService = inject(VehicleService)
   constructor(private commonService: CommonService) { }
 
   ngOnInit(): void {
     this.products = this.commonService.customCarouselCards;
+    // this.vehicleService.getVehicles().subscribe(vehicles => {
+    //   console.log(vehicles);
+    //   this.products = vehicles;
+    // })
   }
 }
