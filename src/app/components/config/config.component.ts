@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core'
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { VehicleService } from '../../service/vehicle.service';
-import { Storage, ref, uploadBytes, uploadBytesResumable } from '@angular/fire/storage';
+import { Storage, getDownloadURL, ref, uploadBytes, uploadBytesResumable } from '@angular/fire/storage';
 import { Vehicles } from '../../vehicle.interface';
 import { CommonService } from '../../service/common.service';
 import { TableModule } from 'primeng/table';
@@ -67,6 +67,7 @@ export class ConfigComponent implements OnInit {
     this.vehicleService.getVehicles().subscribe({
       next: (vehicles) => {
         this.vehicals = vehicles;
+        this.updateVehicleImages();
         this.isLoading = false;
       },
       error: () => { this.isLoading = false }
@@ -78,11 +79,25 @@ export class ConfigComponent implements OnInit {
     this.vehicleInformation.get('ImageUrl')?.setValue('');
   }
 
+  private updateVehicleImages() {
+    this.vehicals.forEach(vehicle => {
+      const imageRef = ref(this._storage, vehicle.ImageUrl);
+      getDownloadURL(imageRef).then((url: string) => {
+        console.log(url);
+        vehicle.ImageUrl = url;
+      }).catch((error: any) => {
+        console.error(`Failed to get image URL for vehicle ${vehicle.Id}:`, error);
+        vehicle.ImageUrl = 'path/to/default-image.png';
+      });
+    });
+    this.isLoading = false;
+  }
+
   async onSubmit() {
     this.isCreateLoading = true;
     const storageRef = ref(this._storage, `Vehicles/${this.file.name}`);
     try {
-      const URL = await uploadBytes(storageRef, this.file);
+      await uploadBytes(storageRef, this.file);
     }
     catch (error) { }
     const dataToAdd = { ...this.vehicleInformation.value, ImageUrl: `Vehicles/${this.file.name}` }

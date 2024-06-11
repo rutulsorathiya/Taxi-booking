@@ -13,13 +13,13 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input pInputText placeholder="From:" class="w-100" styleClass="w-100" type="text">
+          <input pInputText placeholder="From:" [(ngModel)]="fromText" class="w-100" styleClass="w-100" type="text" (ngModelChange)="this.fromTextUpdate.next($event)">
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input pInputText placeholder="To:" class="w-100" styleClass="w-100" type="text">
+          <input pInputText placeholder="To:" class="w-100" [(ngModel)]="toText" styleClass="w-100" type="text" (ngModelChange)="this.toTextUpdate.next($event)">
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">

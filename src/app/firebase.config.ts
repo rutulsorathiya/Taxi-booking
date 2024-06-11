@@ -6,3 +6,5 @@ export const firebaseConfig = {
   messagingSenderId: "136248075415",
   appId: "1:136248075415:web:ebe235a2a437c0abc335d2"
 };
+
+export const locationIqKey : string = "pk.0335047998a1719169a05e9551040793"
