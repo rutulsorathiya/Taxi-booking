@@ -10,18 +10,30 @@
       <h3>Enjoy comfortable trip, order taxi online</h3>
     </div>
     <div class="form-container row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4 position-relative">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input pInputText placeholder="From:" [(ngModel)]="fromText" class="w-100" styleClass="w-100" type="text" (ngModelChange)="this.fromTextUpdate.next($event)">
+          <input pInputText placeholder="From:" [(ngModel)]="fromText" class="w-100" styleClass="w-100" type="text" (ngModelChange)="fromTextUpdate.next($event)">
         </div>
+        <ul *ngIf="fromSuggestions.length > 0" class="suggestions-list">
+          <li *ngFor="let suggestion of fromSuggestions" (click)="selectFromSuggestion(suggestion)">
+            {{ suggestion.display_name }}
+          </li>
+        </ul>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
+      
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4 position-relative">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input pInputText placeholder="To:" class="w-100" [(ngModel)]="toText" styleClass="w-100" type="text" (ngModelChange)="this.toTextUpdate.next($event)">
+          <input pInputText placeholder="To:" class="w-100" [(ngModel)]="toText" styleClass="w-100" type="text" (ngModelChange)="toTextUpdate.next($event)">
         </div>
+        <ul *ngIf="toSuggestions.length > 0" class="suggestions-list">
+          <li *ngFor="let suggestion of toSuggestions" (click)="selectToSuggestion(suggestion)">
+            {{ suggestion.display_name }}
+          </li>
+        </ul>
       </div>
+      
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <p-calendar
@@ -29,19 +41,25 @@
             styleClass="w-100"
             [(ngModel)]="date"
             [iconDisplay]="'input'"
-            [showIcon]="true" />
+            [showIcon]="true" 
+            [minDate]="today" />
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <i class="fa fa-clock-o form-input-icon"></i>
-          <p-dropdown
+          <p-calendar
             class="w-100"
             styleClass="w-100"
-            [options]="timeslot"
-            placeholder="Select a City" />
+            [(ngModel)]="selectedTime"
+            [showIcon]="true"
+            [timeOnly]="true"
+            [hourFormat]="'12'"
+            placeholder="Select a Time">
+          </p-calendar>
         </div>
       </div>
+      
       <div class="col-12 text-center">
         <button class="btn form-button" type="button">Order taxi now</button>
       </div>
