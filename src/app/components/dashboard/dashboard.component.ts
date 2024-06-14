@@ -10,6 +10,7 @@ import { Storage } from '@angular/fire/storage';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap, tap } from 'rxjs/operators';
 import { LocationIqService } from '../../service/location-iq.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -43,6 +44,7 @@ export class DashboardComponent implements OnInit {
 
   vehicleService = inject(VehicleService);
   private readonly _storage = inject(Storage);
+  private readonly _router = inject(Router);
 
   constructor(private _locationIqService: LocationIqService) {
     this.fromTextUpdate.pipe(
@@ -100,5 +102,20 @@ export class DashboardComponent implements OnInit {
     this.toText = suggestion.display_name;
     this.toSuggestions = [];
     this.toLatLng = { lat: parseFloat(suggestion.lat), lon: parseFloat(suggestion.lon) };
+  }
+
+  orderTaxiNow() {
+    if (this.fromLatLng && this.toLatLng) {
+      this._router.navigate(['/booking-details'], {
+        queryParams: {
+          fromLat: this.fromLatLng.lat,
+          fromLon: this.fromLatLng.lon,
+          toLat: this.toLatLng.lat,
+          toLon: this.toLatLng.lon
+        }
+      });
+    } else {
+      console.error("Please select both 'From' and 'To' locations.");
+    }
   }
 }
