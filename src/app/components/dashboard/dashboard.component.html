@@ -10,56 +10,49 @@
       <h3>Enjoy comfortable trip, order taxi online</h3>
     </div>
     <div class="form-container row">
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4 position-relative">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input class="form-input" placeholder="From:" type="text">
+          <input pInputText placeholder="From:" [(ngModel)]="fromText" class="w-100" styleClass="w-100" type="text"
+            (ngModelChange)="fromTextUpdate.next($event)">
         </div>
+        <ul *ngIf="fromSuggestions.length > 0" class="suggestions-list">
+          <li *ngFor="let suggestion of fromSuggestions" (click)="selectFromSuggestion(suggestion)">
+            {{ suggestion.display_name }}
+          </li>
+        </ul>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4 position-relative">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input class="form-input" placeholder="To:" type="text">
+          <input pInputText placeholder="To:" class="w-100" [(ngModel)]="toText" styleClass="w-100" type="text"
+            (ngModelChange)="toTextUpdate.next($event)">
         </div>
+        <ul *ngIf="toSuggestions.length > 0" class="suggestions-list">
+          <li *ngFor="let suggestion of toSuggestions" (click)="selectToSuggestion(suggestion)">
+            {{ suggestion.display_name }}
+          </li>
+        </ul>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
-          <i class="fa fa-phone form-input-icon"></i>
-          <input class="form-input" placeholder="Phone number" type="text">
+          <p-calendar class="w-100" styleClass="w-100" [(ngModel)]="date" [iconDisplay]="'input'" [showIcon]="true"
+            [minDate]="today" placeholder="Select Date" />
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 ">
-        <div class="input-group input-group-lg dropdown-icon">
+      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
+        <div class="input-group input-group-lg">
           <i class="fa fa-clock-o form-input-icon"></i>
-          <select class="form-input">
-            <option disabled selected>Time</option>
-            <option>4:00</option>
-            <option>5:00</option>
-          </select>
+          <p-calendar class="w-100" styleClass="w-100" [(ngModel)]="selectedTime" [showIcon]="true" [timeOnly]="true"
+            [hourFormat]="'12'" placeholder="Select a Time">
+          </p-calendar>
         </div>
       </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="input-group input-group-lg dropdown-icon">
-          <i class="fa fa-car form-input-icon fs-20"></i>
-          <select class="form-input">
-            <option disabled selected>Car type</option>
-            <option>Standard</option>
-            <option>Buisness</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div class="input-group input-group-lg dropdown-icon">
-          <i class="fa fa-money form-input-icon fs-20"></i>
-          <select class="form-input">
-            <option disabled selected>Payment method</option>
-            <option>Standard</option>
-            <option>Buisness</option>
-          </select>
-        </div>
-      </div>
+
       <div class="col-12 text-center">
-        <button class="btn form-button" type="button">Order taxi now</button>
+        <button class="btn form-button" type="button" (click)="orderTaxiNow()">Order taxi now</button>
       </div>
     </div>
   </section>
@@ -225,206 +218,13 @@
     </div>
   </section>
 </section>
-<section>
-  <div class="row m-0">
-    <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">
-      <img alt="iPhone" class="img-fluid" decoding="async" fetchpriority="high" height="1020"
-           src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/iPhone-XS-White.svg"
-           width="630">
-    </div>
-    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-      <div class="mt-80 m-none">
-        <h2 class="app-download-header">Get more benefits, download the App</h2>
-        <div class="app-download-text">
-          Order through the application
-          and get a <strong style="color: #3e4958;">15% discount</strong></div>
-        <div>
-          <ul class="list-none">
-            <li class="mt-3 d-flex gap-2">
-              <div class="mt-2">
-                <i class="fa fa-check primary-color"></i>
-              </div>
-              <div class="app-download-points">
-                <strong style="color: #3e4958;">Fast booking</strong>
-                driver will be awaiting your arrival and will transport you directly to your accommodation
-              </div>
-            </li>
-            <li class="mt-3 d-flex gap-2">
-              <div class="mt-2">
-                <i class="fa fa-check primary-color"></i>
-              </div>
-              <div class="app-download-points">
-                <strong style="color: #3e4958;">Easy to use</strong> you just have to lean back and enjoy the ride
-              </div>
-            </li>
-            <li class="mt-3 d-flex gap-2">
-              <div class="mt-2">
-                <i class="fa fa-check primary-color"></i>
-              </div>
-              <div class="app-download-points">
-                <strong style="color: #3e4958;">Bonuses for ride</strong> discounted rates, so you can be sure that you
-                will be getting the best value transfers
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="text-center d-flex  flex-wrap gap-2 mt-5">
-          <button class="btn btn-secondary app-download-button d-flex align-items-center" type="button">
-            <div>
-              <i class="fa fa-apple m-2 fs-30"></i>
-            </div>
-            <div class="d-flex justify-content-start flex-column">
-              <span class="small">Available on</span>
-              <span>APP STORE</span>
-            </div>
-          </button>
-          <button
-            class="btn btn-secondary background-primary border-0 app-download-button d-flex justify-content-center align-items-center"
-            type="button">
-            <div>
-              <i class="fa fa-android m-2 fs-30"></i>
-            </div>
-            <div class="d-flex flex-column">
-              <span class="small">Available on</span>
-              <span>GOOGLE PLAY</span>
-            </div>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 <section class="quote-section row m-0 d-flex justify-content-center align-items-center">
   <div class="col-12 text-center mt-3">
     <h2 class="section-header text-center">Car classes and rates</h2>
   </div>
   <div class="col-12 mb-5">
-    <div class="carousel slide" data-bs-ride="carousel" id="carouselExampleControls">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <div class="cards-wrapper">
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Van.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Van</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$6,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Econom.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Econom</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$3,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Business.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Business</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$2,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/SUV.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">SUV</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$1,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <div class="cards-wrapper">
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Van.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Van</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$6,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Econom.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Econom</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$3,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Business.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">Business</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$2,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="image-wrapper d-flex justify-content-center align-items-center">
-                <img alt="Van"
-                     decoding="async"
-                     loading="lazy"
-                     src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/SUV.svg">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">SUV</h5>
-                <div class="card-text">We provide taxi services, but we also provide transportation</div>
-                <div class="taxi-price"><span>$1,5<span style="font-size: .5em;">/km</span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" data-bs-slide="prev" data-bs-target="#carouselExampleControls"
-              type="button">
-        <span aria-hidden="true" class="carousel-control-prev-icon"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" data-bs-slide="next" data-bs-target="#carouselExampleControls"
-              type="button">
-        <span aria-hidden="true" class="carousel-control-next-icon"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+    <app-carousel></app-carousel>
   </div>
   <div class="col-12 text-center mt-2">
     <i class="fa fa-quote-left primary-color fs-40 mb-5"></i>
@@ -437,11 +237,10 @@
     <strong style="color: #3E4958;">— Ted Mckinney,</strong> Executive Director
   </div>
   <div class="col-12 text-center">
-    <img alt="car" class="img-fluid taxi-image-container" decoding="async" height="984"
-         loading="lazy"
-         sizes="(max-width: 1134px) 100vw, 1134px"
-         src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Group-168.png"
-         width="1134">
+    <img alt="car" class="img-fluid taxi-image-container" decoding="async" height="984" loading="lazy"
+      sizes="(max-width: 1134px) 100vw, 1134px"
+      src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Group-168.png"
+      width="1134">
   </div>
   <div class="row text-center">
     <div class="col-md-12 mt-5 mb-2">
@@ -552,3 +351,74 @@
     </div>
   </div>
 </div>
+
+
+<!--<section>-->
+<!--  <div class="row m-0">-->
+<!--    <div class="col-lg-6 col-md-5 col-sm-12 col-xs-12">-->
+<!--      <img alt="iPhone" class="img-fluid" decoding="async" fetchpriority="high" height="1020"-->
+<!--           src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/iPhone-XS-White.svg"-->
+<!--           width="630">-->
+<!--    </div>-->
+<!--    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">-->
+<!--      <div class="mt-80 m-none">-->
+<!--        <h2 class="app-download-header">Get more benefits, download the App</h2>-->
+<!--        <div class="app-download-text">-->
+<!--          Order through the application-->
+<!--          and get a <strong style="color: #3e4958;">15% discount</strong></div>-->
+<!--        <div>-->
+<!--          <ul class="list-none">-->
+<!--            <li class="mt-3 d-flex gap-2">-->
+<!--              <div class="mt-2">-->
+<!--                <i class="fa fa-check primary-color"></i>-->
+<!--              </div>-->
+<!--              <div class="app-download-points">-->
+<!--                <strong style="color: #3e4958;">Fast booking</strong>-->
+<!--                driver will be awaiting your arrival and will transport you directly to your accommodation-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="mt-3 d-flex gap-2">-->
+<!--              <div class="mt-2">-->
+<!--                <i class="fa fa-check primary-color"></i>-->
+<!--              </div>-->
+<!--              <div class="app-download-points">-->
+<!--                <strong style="color: #3e4958;">Easy to use</strong> you just have to lean back and enjoy the ride-->
+<!--              </div>-->
+<!--            </li>-->
+<!--            <li class="mt-3 d-flex gap-2">-->
+<!--              <div class="mt-2">-->
+<!--                <i class="fa fa-check primary-color"></i>-->
+<!--              </div>-->
+<!--              <div class="app-download-points">-->
+<!--                <strong style="color: #3e4958;">Bonuses for ride</strong> discounted rates, so you can be sure that you-->
+<!--                will be getting the best value transfers-->
+<!--              </div>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--        </div>-->
+<!--        <div class="text-center d-flex  flex-wrap gap-2 mt-5">-->
+<!--          <button class="btn btn-secondary app-download-button d-flex align-items-center" type="button">-->
+<!--            <div>-->
+<!--              <i class="fa fa-apple m-2 fs-30"></i>-->
+<!--            </div>-->
+<!--            <div class="d-flex justify-content-start flex-column">-->
+<!--              <span class="small">Available on</span>-->
+<!--              <span>APP STORE</span>-->
+<!--            </div>-->
+<!--          </button>-->
+<!--          <button-->
+<!--            class="btn btn-secondary background-primary border-0 app-download-button d-flex justify-content-center align-items-center"-->
+<!--            type="button">-->
+<!--            <div>-->
+<!--              <i class="fa fa-android m-2 fs-30"></i>-->
+<!--            </div>-->
+<!--            <div class="d-flex flex-column">-->
+<!--              <span class="small">Available on</span>-->
+<!--              <span>GOOGLE PLAY</span>-->
+<!--            </div>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->

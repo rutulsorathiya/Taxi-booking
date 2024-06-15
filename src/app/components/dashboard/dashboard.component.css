@@ -65,8 +65,8 @@
 
 .form-input-icon {
   position: absolute;
-  top: 30px;
-  left: 20px;
+  top: 25px;
+  left: 10px;
   font-size: 25px;
   color: var(--primary-color);
   z-index: 1;
@@ -366,7 +366,7 @@ ul {
   }
 
   .dashboard-container {
-    height: 900px;
+    height: 750px;
   }
 
   .header {
@@ -432,4 +432,31 @@ ul {
   }
 }
 
+.position-relative {
+  position: relative;
+}
+
+.suggestions-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: white;
+  z-index: 1000;
+}
+
+.suggestions-list li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions-list li:hover {
+  background-color: #f0f0f0;
+}
 

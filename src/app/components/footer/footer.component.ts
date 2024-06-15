@@ -1,4 +1,5 @@
 import { Component, HostListener } from '@angular/core';
+import { CommonService } from '../../service/common.service';
 
 @Component({
   selector: 'app-footer',
@@ -19,4 +20,6 @@ export class FooterComponent {
       container.style.backgroundPositionY = -(scrollTop * speed) + 'px';
     }
   }
+
+  constructor(readonly commonService: CommonService) { }
 }

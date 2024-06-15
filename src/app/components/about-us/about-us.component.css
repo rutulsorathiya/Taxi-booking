@@ -11,14 +11,13 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 100vh;
 }
 
 .theme-primary-tag {
   color: #f9d700;
 }
 
-/* 
+/*
 .contact-us-content {
     text-align: center;
     align-items: center;
