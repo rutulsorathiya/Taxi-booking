@@ -47,9 +47,11 @@ export class BookingDetailsComponent implements OnInit {
           this.fromText = res.display_name;
         }
       })
-      this._locationIqService.direction(this.fromLatLng.lat, this.fromLatLng.lon, this.toLatLng.lat, this.toLatLng.lon).subscribe({
+
+      timer(2000).pipe(
+        switchMap(() => this._locationIqService.direction(this.fromLatLng?.lat!, this.fromLatLng?.lon!, this.toLatLng?.lat!, this.toLatLng?.lon!))
+      ).subscribe({
         next: (res) => {
-          console.log(res);
           this.distance = (res.routes[0].distance) / 1000;
         }
       })

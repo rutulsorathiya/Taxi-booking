@@ -88,12 +88,15 @@ body {
 }
 
 .p-dropdown:not(.p-disabled).p-focus,
-.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+.p-calendar:not(.p-calendar-disabled).p-focus>.p-inputtext {
   box-shadow: none;
 }
 
 
-.p-input-icon-left > i, .p-input-icon-left > .p-icon-wrapper, .p-input-icon-right > i, .p-input-icon-right > .p-icon-wrapper {
+.p-input-icon-left>i,
+.p-input-icon-left>.p-icon-wrapper,
+.p-input-icon-right>i,
+.p-input-icon-right>.p-icon-wrapper {
   position: absolute;
   top: 45%;
   left: 15px;

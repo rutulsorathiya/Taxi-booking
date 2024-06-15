@@ -4,6 +4,7 @@ import { CommonService } from '../../service/common.service'
 import { TagModule } from 'primeng/tag';
 import { Vehicles } from '../../vehicle.interface';
 import { VehicleService } from '../../service/vehicle.service';
+import { getDownloadURL, ref, Storage } from '@angular/fire/storage';
 
 
 @Component({
@@ -39,13 +40,26 @@ export class CarouselComponent implements OnInit {
   ];
 
   vehicleService = inject(VehicleService)
-  constructor(private commonService: CommonService) { }
+  constructor(private commonService: CommonService, private _storage: Storage) { }
 
   ngOnInit(): void {
-    this.products = this.commonService.customCarouselCards;
-    // this.vehicleService.getVehicles().subscribe(vehicles => {
-    //   console.log(vehicles);
-    //   this.products = vehicles;
-    // })
+    // this.products = this.commonService.customCarouselCards;
+    this.vehicleService.getVehicles().subscribe(vehicles => {
+      console.log(vehicles);
+      this.products = vehicles;
+      this.updateVehicleImages();
+    })
+  }
+  private updateVehicleImages() {
+    this.products.forEach(vehicle => {
+      const imageRef = ref(this._storage, vehicle.ImageUrl);
+      getDownloadURL(imageRef).then((url: string) => {
+        console.log(url);
+        vehicle.ImageUrl = url;
+      }).catch((error: any) => {
+        console.error(`Failed to get image URL for vehicle ${vehicle.Id}:`, error);
+        vehicle.ImageUrl = 'path/to/default-image.png';
+      });
+    });
   }
 }

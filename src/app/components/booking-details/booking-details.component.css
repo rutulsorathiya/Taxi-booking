@@ -28,8 +28,8 @@
   display: flex;
   justify-content: center;
   /* Center-align each row */
-  align-items: center;
-  margin-bottom: 10px;
+  align-items: baseline;
+  /* margin-bottom: 10px; */
 }
 
 .info-item label {
@@ -48,7 +48,11 @@
   color: #555;
 }
 
-
+.highlighted-text {
+  font-size: 20px;
+  color: #333;
+  font-weight: bold;
+}
 
 .carousel-container {
   text-align: center;

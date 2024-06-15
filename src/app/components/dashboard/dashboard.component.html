@@ -13,7 +13,8 @@
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4 position-relative">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input pInputText placeholder="From:" [(ngModel)]="fromText" class="w-100" styleClass="w-100" type="text" (ngModelChange)="fromTextUpdate.next($event)">
+          <input pInputText placeholder="From:" [(ngModel)]="fromText" class="w-100" styleClass="w-100" type="text"
+            (ngModelChange)="fromTextUpdate.next($event)">
         </div>
         <ul *ngIf="fromSuggestions.length > 0" class="suggestions-list">
           <li *ngFor="let suggestion of fromSuggestions" (click)="selectFromSuggestion(suggestion)">
@@ -21,11 +22,12 @@
           </li>
         </ul>
       </div>
-      
+
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4 position-relative">
         <div class="input-group input-group-lg">
           <i class="fa fa-map-marker form-input-icon"></i>
-          <input pInputText placeholder="To:" class="w-100" [(ngModel)]="toText" styleClass="w-100" type="text" (ngModelChange)="toTextUpdate.next($event)">
+          <input pInputText placeholder="To:" class="w-100" [(ngModel)]="toText" styleClass="w-100" type="text"
+            (ngModelChange)="toTextUpdate.next($event)">
         </div>
         <ul *ngIf="toSuggestions.length > 0" class="suggestions-list">
           <li *ngFor="let suggestion of toSuggestions" (click)="selectToSuggestion(suggestion)">
@@ -33,33 +35,22 @@
           </li>
         </ul>
       </div>
-      
+
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
-          <p-calendar
-            class="w-100"
-            styleClass="w-100"
-            [(ngModel)]="date"
-            [iconDisplay]="'input'"
-            [showIcon]="true" 
-            [minDate]="today" />
+          <p-calendar class="w-100" styleClass="w-100" [(ngModel)]="date" [iconDisplay]="'input'" [showIcon]="true"
+            [minDate]="today" placeholder="Select Date" />
         </div>
       </div>
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pb-4">
         <div class="input-group input-group-lg">
           <i class="fa fa-clock-o form-input-icon"></i>
-          <p-calendar
-            class="w-100"
-            styleClass="w-100"
-            [(ngModel)]="selectedTime"
-            [showIcon]="true"
-            [timeOnly]="true"
-            [hourFormat]="'12'"
-            placeholder="Select a Time">
+          <p-calendar class="w-100" styleClass="w-100" [(ngModel)]="selectedTime" [showIcon]="true" [timeOnly]="true"
+            [hourFormat]="'12'" placeholder="Select a Time">
           </p-calendar>
         </div>
       </div>
-      
+
       <div class="col-12 text-center">
         <button class="btn form-button" type="button" (click)="orderTaxiNow()">Order taxi now</button>
       </div>
@@ -246,11 +237,10 @@
     <strong style="color: #3E4958;">— Ted Mckinney,</strong> Executive Director
   </div>
   <div class="col-12 text-center">
-    <img alt="car" class="img-fluid taxi-image-container" decoding="async" height="984"
-         loading="lazy"
-         sizes="(max-width: 1134px) 100vw, 1134px"
-         src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Group-168.png"
-         width="1134">
+    <img alt="car" class="img-fluid taxi-image-container" decoding="async" height="984" loading="lazy"
+      sizes="(max-width: 1134px) 100vw, 1134px"
+      src="https://ld-wp73.template-help.com/wordpress/prod_26760/v2/wp-content/uploads/2019/11/Group-168.png"
+      width="1134">
   </div>
   <div class="row text-center">
     <div class="col-md-12 mt-5 mb-2">
